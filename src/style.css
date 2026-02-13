@@ -1,0 +1,185 @@
+/* #main {
+  position: fixed;
+  width: 100%;
+  height: 100dvh;
+  left: 0;
+  top: 0;
+}
+#main__content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f0f;
+  width: 1px;
+  height: 1px;
+}
+#main__content--in {
+  position: absolute;
+  margin: -650px 0 0 -1275px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 2550px;
+  height: 1300px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+.item__column {
+  position: relative;
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
+.item {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: #333;
+} */
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap");
+body {
+  overflow: hidden;
+}
+main {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+#close {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer;
+  &.active {
+    pointer-events: all;
+    opacity: 1;
+  }
+  &:hover {
+    #cross {
+      opacity: 1;
+      transition: opacity 0.3s 0.5s;
+    }
+  }
+}
+.grid {
+  position: absolute;
+  display: flex;
+  gap: 5vw;
+  cursor: grab;
+  background-color: #333;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 5vw;
+}
+.column:nth-child(even) {
+  margin-top: 10vw;
+}
+.product {
+  position: relative;
+  width: calc(18.5vw * 0.5);
+  aspect-ratio: 1 / 1;
+}
+
+.product div {
+  width: calc(18.5vw * 0.5);
+  aspect-ratio: 1 / 1;
+}
+
+.product img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.details {
+  position: absolute;
+  top: 0;
+  left: 100vw;
+  width: 50vw;
+  height: 100vh;
+  padding: 4vw 2vw;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.details__thumb {
+  position: relative;
+  width: calc(25vw * 0.7);
+  aspect-ratio: 1 / 1;
+  z-index: 3;
+  will-change: transform;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+.details__title {
+  font-family: "Lexend", sans-serif;
+  font-weight: 600;
+  font-size: 3vw;
+  margin-bottom: 2vw;
+}
+.details__texts {
+  font-family: "Lexend", sans-serif;
+  font-weight: 600;
+  font-size: 1.5vw;
+  margin-top: 2vw;
+}
+
+#cross {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  &::before {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 10px;
+    background-color: #000;
+    left: 0;
+    top: 0;
+    transform-origin: 50% 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 30px;
+    background-color: #000;
+    left: 0;
+    top: 0;
+    transform-origin: 50% 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}
